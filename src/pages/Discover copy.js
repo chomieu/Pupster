@@ -8,6 +8,8 @@ class Discover extends Component {
     image: "",
   }
 
+  
+
   render() {
 
     return (<div>
