@@ -1,13 +1,16 @@
 import React from "react";
 
 function Search() {
+
   return (
-    <div>
-      <h2>Search By Breed!</h2>
+    <div className="container">
+      <h2 className="text-center">Search By Breed!</h2>
       <form>
-        <label>Breed Name:</label>
-        <input placeholder="Type in a dog breed to begin"></input>
-        <button>Search</button>
+        <div className="form-group">
+          <label for="breed">Breed Name:</label>
+          <input className="form-control" id="breed" placeholder="Type in a dog breed to begin"></input>
+        </div>
+        <button type="submit" className="btn btn-success">Search</button>
       </form>
     </div>
   );
