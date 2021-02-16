@@ -5,7 +5,18 @@ import API from "../utils/API";
 class Search extends Component {
   state = {
     search: "",
+    results: []
   };
+
+  componentDidMount = () => {
+    this.searchBreeds("pomeranian")
+  }
+
+  searchBreeds = breed => {
+    API.searchBreeds(breed).then(res => {
+      this.setState({results: res.data.message})
+    })
+  }
 
   handleInputChange = event => {
     const name = event.target.name
@@ -15,7 +26,7 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault()
-    this.searchMovies(this.state.search)
+    this.searchBreeds(this.state.search)
     this.setState({ search: "" })
   }
 
@@ -28,6 +39,7 @@ class Search extends Component {
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
+        {this.state.results.map(imgSrc=><img src={imgSrc}/>)}
       </div>
     );
   }

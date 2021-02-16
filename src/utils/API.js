@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const BASEURL = "https://dog.ceo/api/";
-
-export default {
-  get: function () {
-    return axios.get(BASEURL + "/image/random");
+const API = {
+  searchBreeds: breed => {
+    return axios.get(`https://dog.ceo/api/breed/${breed}/images`);
   },
-  search: function(query) {
-    return axios.get(BASEURL + query + "/image/random");
+  getRandom: ()=>{
+    return axios.get(`https://dog.ceo/api/breeds/image/random`)
   }
 };
+
+export default API

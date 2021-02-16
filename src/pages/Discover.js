@@ -20,7 +20,7 @@ export default class Discover extends Component {
   }
 
   getPuppy = () => {
-    API.get()
+    API.getRandom()
       .then((puppy) => this.setState({ puppyImg: puppy.data.message }))
       .catch((err) => console.log(err));
   };
@@ -42,7 +42,7 @@ export default class Discover extends Component {
     return (
       <div>
         <div className="card" style={styles.img}>
-          <img src={this.state.puppy} className="card-img-top" alt="..." />
+          <img src={this.state.puppyImg} className="card-img-top" alt="..." />
           <div className="card-body">
             <h5 className="card-title">Card title</h5>
             <p className="card-text">
